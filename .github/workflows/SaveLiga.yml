@@ -2,7 +2,7 @@ name: SaveLiga
 
 on:
   schedule:
-    - cron: '* /5 * * * *' # Every Week
+    - cron: '*/5 * * * *' # Every Week
 
 jobs:
   save-data:
