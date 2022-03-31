@@ -14,12 +14,12 @@ CREATE TABLE IF NOT EXISTS LIGA (
 drv <- dbDriver("PostgreSQL")
 
 con <- dbConnect(drv,
-                 dbname = "ddykovrz", 
-                 host = "john.db.elephantsql.com",
+                 dbname = Sys.getenv("ELEPHANT_SQL_DBNAME"), 
+                 host = Sys.getenv("ELEPHANT_SQL_HOST"),
                  port = 5432,
-                 user = "ddykovrz",
-                 password = "COG8VZQCXRuhlDEwQEDDmkuQ4iPXAoAF")
-
+                 user = Sys.getenv("ELEPHANT_SQL_USER"),
+                 password = Sys.getenv("ELEPHANT_SQL_PASSWORD")
+)
 # Membuat Tabel untuk Pertama Kalinya
 data <- dbGetQuery(con, query)
 
@@ -34,7 +34,6 @@ baris <- nrow(data)
 
 urlprimer <- "https://www.goal.com/id/liga-primer/tabel/2kwbbcootiqqgmrzs6o5inle5"
 primer <- urlprimer %>% read_html() %>% html_table()
-datap <- as.data.frame(primer[[2]])
 
 urlserieA <- "https://www.goal.com/id/serie-a/tabel/1r097lpxe0xn03ihb7wi98kao"
 serieA <- urlserieA %>% read_html() %>% html_table()
@@ -45,12 +44,14 @@ laliga <- urllaliga %>% read_html() %>% html_table()
 urlbundesliga <- "https://www.goal.com/id/bundesliga/tabel/6by3h89i2eykc341oz7lv1ddd"
 bundesliga <- urlbundesliga %>% read_html() %>% html_table()
 
-# data <- data.frame(Minggu = (baris+1),
-#                    LigaPrimer = c(primer[[2]][1,2]$Tim[1]),
-#                    LigaSerieA = c(serieA[[2]][1,2]$Tim[1]),
-#                    LigaLaliga = c(laliga[[2]][1,2]$Tim[1]),
-#                    LigaBundesliga = c(bundesliga[[2]][1,2]$Tim[1]))
 
-dbWriteTable(conn = con, name = 'primer2', value = datap, append = TRUE, row.names = FALSE, overwrite=FALSE)
+
+data <- data.frame(Minggu = (baris+1),
+                   LigaPrimer = c(primer[[2]][1,2]$Tim[1]),
+                   LigaSerieA = c(serieA[[2]][1,2]$Tim[1]),
+                   LigaLaliga = c(laliga[[2]][1,2]$Tim[1]),
+                   LigaBundesliga = c(bundesliga[[2]][1,2]$Tim[1]))
+
+dbWriteTable(conn = con, name = "LIGA", value = data, append = TRUE, row.names = FALSE, overwrite=FALSE)
 
 on.exit(dbDisconnect(con)) 
