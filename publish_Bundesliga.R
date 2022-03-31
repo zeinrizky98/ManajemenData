@@ -24,7 +24,7 @@ export_formattable <- function(f, file, width = "100%", height = NULL,
 ## save to a temp file
 file <- tempfile(fileext = ".png")
 
-p = formattable(data2[[2]], list(
+p = formattable(data4[[2]], list(
   "Pos" = color_tile("purple", "white"),
   "+/-" = formatter("span",
                     style = x ~ style(color = ifelse(x <= 0, "red", "green")))
