@@ -48,11 +48,11 @@ samp_word <- sample(hashtag, 1)
 ## Status Message
 
 status_details <- paste0(Sys.Date(),": Top 3 Kelasemen Sementara Liga Inggris Musim 2021-2022 :", "\n",
-                         "1.",    data[[2]][1,2],"\n", 
-                         "2.",    data[[2]][2,2],"\n",
-                         "3.",    data[[2]][3,2],"\n",
+                         "1. ",    data[[2]][1,2],"\n", 
+                         "2. ",    data[[2]][2,2],"\n",
+                         "3. ",    data[[2]][3,2],"\n",
                          
-                         "#",samp_word, "#infobola", "\n",
+                         "#",samp_word, " #infobola", "\n",
                          "Selengkapnya sebagai berikut:",
                          "\n")
 
