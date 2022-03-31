@@ -2,7 +2,7 @@ name: JuaraBulanan
 
 on:
   schedule:
-    - cron: '0 6 1 * *'  # every week.
+    - cron: '0 6 1 * *'  # every month.
 
 jobs:
   publish-data:
