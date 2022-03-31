@@ -1,8 +1,8 @@
-name: Save
+name: SaveLiga
 
 on:
   schedule:
-    - cron: '0 06 * * 0'  # once every week (At 06:00 on Sunday)
+    - cron: '* /5 * * * *' # Every Week
 
 jobs:
   save-data:
@@ -20,6 +20,6 @@ jobs:
       - name: Install rvest package
         run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'
       - name: Install dplyr package
-        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
+        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'      
       - name: Run The R Script
-        run: Rscript save.R
+        run: Rscript SaveLiga.R
