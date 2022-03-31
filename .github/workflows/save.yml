@@ -2,7 +2,7 @@ name: Save
 
 on:
   schedule:
-    - cron: '0,30 * * * *'  # once every 30 minutes
+    - cron: '0 06 * * 0'  # once every week (At 06:00 on Sunday)
 
 jobs:
   save-data:
@@ -17,5 +17,9 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: Install RPostgreSQL package
         run: Rscript -e 'install.packages("RPostgreSQL", dependencies = TRUE)'
+      - name: Install rvest package
+        run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'
+      - name: Install dplyr package
+        run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
       - name: Run The R Script
         run: Rscript save.R
