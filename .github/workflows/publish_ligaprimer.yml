@@ -2,7 +2,7 @@ name: Publish
 
 on:
   schedule:
-    - cron: '15,45 * * * *'  # twice every hour.
+    - cron: '15,55 * * * *'  # twice every hour.
 
 jobs:
   publish-data:
@@ -34,4 +34,4 @@ jobs:
       - name: Install phantomjs() package
         run: Rscript -e 'webshot::install_phantomjs()'
       - name: Create and post tweet
-        run: Rscript publish_LigaPrimer.R
+        run: Rscript publish_ligaprimer.R
