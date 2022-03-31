@@ -39,18 +39,22 @@ export_formattable(
   delay = 10
 )
 
-## 1st Hashtag
-hashtag <- c("ManajemenData","ManajemenDataStatistika", "github","rvest","rtweet", "ElephantSQL", "SQL", "bot", "opensource", "ggplot2","PostgreSQL","RPostgreSQL")
+# Hashtag
+hashtag <- c("Laliga","LigaInggris","SerieA","LigaSpanyol","PremierLeague","Bundesliga","Sepakbola","Football",
+             "github","rvest","rtweet", "bot", "opensource", "ggplot2", "dplyr", "tidyr")
 
 samp_word <- sample(hashtag, 1)
 
 ## Status Message
 
-status_details <- paste0(Sys.Date(),": Kelasemen Sementara Liga Inggris:", "\n","\n",
-                         "1: ",    data[[2]][1,2],"\n",
-                         "M: ",    data[[2]][1,3],"\n", 
-                         "+/-: ",  data[[2]][1,4],"\n",
-                         "P: ",    data[[2]][1,5])
+status_details <- paste0(Sys.Date(),": Top 3 Kelasemen Sementara Liga Inggris Musim 2021-2022 :", "\n",
+                         "1.",    data[[2]][1,2],"\n", 
+                         "2.",    data[[2]][2,2],"\n",
+                         "3.",    data[[2]][3,2],"\n",
+                         
+                         "#",samp_word, "#infobola", "\n",
+                         "Selengkapnya sebagai berikut:",
+                         "\n")
 
 # Publish to Twitter
 library(rtweet)
