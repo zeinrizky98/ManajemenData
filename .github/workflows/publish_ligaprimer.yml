@@ -21,11 +21,17 @@ jobs:
       - uses: r-lib/actions/setup-r@master
       - name: Install rtweet package
         run: Rscript -e 'install.packages("rtweet", dependencies = TRUE)'
-      - name: Install ggplot2 package
-        run: Rscript -e 'install.packages("ggplot2", dependencies = TRUE)'
+      - name: Install rvest package
+        run: Rscript -e 'install.packages("rvest", dependencies = TRUE)'
       - name: Install dplyr package
         run: Rscript -e 'install.packages("dplyr", dependencies = TRUE)'
-      - name: Install RPostgreSQL package
-        run: Rscript -e 'install.packages("RPostgreSQL", dependencies = TRUE)'
+      - name: Install formattable package
+        run: Rscript -e 'install.packages("formattable", dependencies = TRUE)'
+      - name: Install htmltools package
+        run: Rscript -e 'install.packages("htmltools", dependencies = TRUE)'
+      - name: Install webshot package
+        run: Rscript -e 'install.packages("webshot", dependencies = TRUE)'
+      - name: Install phantomjs() package
+        run: Rscript -e 'webshot::install_phantomjs()'
       - name: Create and post tweet
-        run: Rscript publish.R
+        run: Rscript publish_LigaPrimer.R
