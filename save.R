@@ -14,11 +14,11 @@ CREATE TABLE IF NOT EXISTS LIGA (
 drv <- dbDriver("PostgreSQL")
 
 con <- dbConnect(drv,
-                 dbname = "ELEPHANT_SQL_DBNAME", 
-                 host = "ELEPHANT_SQL_HOST",
+                 dbname = ddykovrz, 
+                 host = john.db.elephantsql.com,
                  port = 5432,
-                 user = "ELEPHANT_SQL_USER",
-                 password = "ELEPHANT_SQL_PASSWORD"
+                 user = ddykovrz,
+                 password = COG8VZQCXRuhlDEwQEDDmkuQ4iPXAoAF
 )
 
 # Membuat Tabel untuk Pertama Kalinya
