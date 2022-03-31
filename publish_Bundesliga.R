@@ -1,7 +1,7 @@
 # Dataa
 library(dplyr)
 library(rvest)
-urlPT <- "https://https://www.goal.com/id/bundesliga/tabel/6by3h89i2eykc341oz7lv1ddd"
+urlPT <- "https://www.goal.com/id/bundesliga/tabel/6by3h89i2eykc341oz7lv1ddd"
 data4 <- urlPT %>% read_html() %>% html_table()
 
 # Tabel Klasemen
