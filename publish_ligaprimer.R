@@ -58,10 +58,10 @@ library(rtweet)
 ## Create Twitter token
 bola_token <- rtweet::create_token(
   app = "LigaEropaBOT",
-  consumer_key =    Sys.getenv("KkOXL26usvkE5Q9XYxZsqISMv"),
-  consumer_secret = Sys.getenv("beaa0xv5rWIuN0Tll6pgase4nl6rCXk9k7XmOZI9eZMVHhLQNT"),
-  access_token =    Sys.getenv("1489083674561683461-4C2bPcSJnArO5W0vFIJsbYWIqaUeAk"),
-  access_secret =   Sys.getenv("LKmpehtvjZ8YwsXam4X2waXW3YB5T56EyGc64SqwcxFz2")
+  consumer_key =    Sys.getenv("TWITTER_CONSUMER_API_KEY"),
+  consumer_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
+  access_token =    Sys.getenv("TWITTER_ACCESS_TOKEN"),
+  access_secret =   Sys.getenv("TWITTER_ACCESS_TOKEN_SECRET")
 )
 
 
